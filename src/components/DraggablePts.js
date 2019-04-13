@@ -55,7 +55,6 @@ const draggableCanvas = WrappedComponent => {
           onDragStart={this.onDragStart.bind(this)}
           onDragEnd={this.onDragEnd.bind(this)}
         >
-          {"item_" + this.props.id}
           <WrappedComponent />
           <Resizer
             ref={"resizerNode"}

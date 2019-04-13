@@ -44,7 +44,7 @@ class DropArea extends React.Component {
   }
   updateStateDragging(id, isDragging) {
     let list = this.state.list;
-    let index = this.state.list.findIndex(item => item.id == id);
+    let index = this.state.list.findIndex(item => item.id === id);
     list[index].isDragging = isDragging;
 
     let newState = Object.assign(this.state, {
@@ -54,7 +54,7 @@ class DropArea extends React.Component {
   }
   updateStateResizing(id, isResizing) {
     let list = this.state.list;
-    let index = this.state.list.findIndex(item => item.id == id);
+    let index = this.state.list.findIndex(item => item.id === id);
     list[index].isResizing = isResizing;
 
     let newState = Object.assign(this.state, {
@@ -66,7 +66,7 @@ class DropArea extends React.Component {
     let node = ReactDOM.findDOMNode(this.refs["node_" + id]);
 
     let list = this.state.list;
-    let index = this.state.list.findIndex(item => item.id == id);
+    let index = this.state.list.findIndex(item => item.id === id);
     list[index].width = clientX - node.offsetLeft + 16 / 2;
     list[index].height = clientY - node.offsetTop + 16 / 2;
 
