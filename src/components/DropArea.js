@@ -15,18 +15,13 @@ class DropArea extends React.Component {
   componentDidMount() {
     const { items } = this.props;
     this.setState({ list: items });
-    console.log(items[items.length - 2].Component);
   }
   onDragOver(e) {
-    console.log("DropArea.onDragOver");
-
     e.preventDefault();
     return false;
   }
   // drop
   onDrop(e) {
-    console.log("DropArea.onDrop");
-
     var obj = JSON.parse(e.dataTransfer.getData("application/json"));
 
     let list = this.state.list;
@@ -78,10 +73,10 @@ class DropArea extends React.Component {
   }
   render() {
     const { items } = this.props;
+    console.log("render");
     const draggables =
       items &&
       items.map(item => {
-        console.log(item);
         return (
           item.Component && (
             <Test
@@ -97,7 +92,6 @@ class DropArea extends React.Component {
               updateStateDragging={this.updateStateDragging.bind(this)}
               updateStateResizing={this.updateStateResizing.bind(this)}
               funcResizing={this.funcResizing.bind(this)}
-              component={item.Component}
             >
               {item.Component}
             </Test>

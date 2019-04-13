@@ -3,13 +3,13 @@ import { css } from "glamor";
 
 const innerClassName = css({ margin: 0, textAlign: "left" });
 
-const className = css({ margin: 0, textAlign: "left" });
+const className = css({ margin: 0, textAlign: "left", userSelect: "contain" });
 
 const Header = () => {
   console.log("HEADER");
   return (
     <div id="FOOOF" className={innerClassName}>
-      <h3>@kschaer</h3>
+      <h2>@kschaer</h2>
       <p>
         Arcu risus quis varius quam quisque. Egestas sed tempus urna et
         pharetra. Semper auctor neque vitae tempus quam pellentesque nec nam.
@@ -57,23 +57,25 @@ const Item4 = () => (
   </div>
 );
 
+const getDim = (min = 80, max = 600) => min + Math.random() * max - min;
+
 export const items = [
   {
     id: "Header",
     isDragging: false,
     isResizing: false,
-    top: 60,
-    left: 250,
+    top: getDim(80, 100),
+    left: getDim(80, 300),
     width: 800,
-    height: 150,
+    height: 170,
     Component: Header
   },
   {
     id: "first",
     isDragging: false,
     isResizing: false,
-    top: 180,
-    left: 140,
+    top: getDim(),
+    left: getDim(),
     width: 500,
     height: 180,
     Component: Item
@@ -82,8 +84,8 @@ export const items = [
     id: "second",
     isDragging: false,
     isResizing: false,
-    top: 220,
-    left: 350,
+    top: getDim(),
+    left: getDim(),
     width: 300,
     height: 200,
     Component: Item2
@@ -92,8 +94,8 @@ export const items = [
     id: "third",
     isDragging: false,
     isResizing: false,
-    top: 450,
-    left: 600,
+    top: getDim(),
+    left: getDim(),
     width: 400,
     height: 250,
     Component: Item3
@@ -102,8 +104,8 @@ export const items = [
     id: "fourth",
     isDragging: false,
     isResizing: false,
-    top: 180,
-    left: 850,
+    top: getDim(),
+    left: getDim(),
     width: 300,
     height: 400,
     Component: Item4

@@ -4,25 +4,16 @@ import Resizer from "./Resizer";
 
 const draggableCanvas = WrappedComponent => {
   return class DraggableWrapper extends React.Component {
-    componentDidMount() {
-      console.log("mounted", this.props);
-    }
     onMouseDown(e) {
-      console.log("Draggable.onMouseDown");
-
       var elm = document.elementFromPoint(e.clientX, e.clientY);
       if (elm.className !== "resizer") {
         this.props.updateStateDragging(this.props.id, true);
       }
     }
     onMouseUp(e) {
-      console.log("Draggable.onMouseUp");
       this.props.updateStateDragging(this.props.id, false);
     }
-    // Drag
     onDragStart(e) {
-      console.log("Draggable.onDragStart");
-
       const nodeStyle = this.refs.node.style;
       e.dataTransfer.setData(
         "application/json",
@@ -35,8 +26,6 @@ const draggableCanvas = WrappedComponent => {
       );
     }
     onDragEnd(e) {
-      console.log("Draggable.onDragEnd");
-
       this.props.updateStateDragging(this.props.id, false);
     }
     render() {

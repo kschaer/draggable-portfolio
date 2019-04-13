@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import { css } from "glamor";
 
 import { absoluteBlue, white, black, spacer } from "../util";
@@ -14,8 +14,9 @@ const containerClassName = css({
 const className = css({
   display: "flex",
   alignItems: "left",
-  background:
-    "linear-gradient(to bottom, rgba(255,255,240,0.80) 0%,rgba(255,255,240,0.90) 100%)",
+  // background:
+  //   "linear-gradient(to bottom, rgba(255,255,240,0.80) 0%,rgba(255,255,240,0.90) 100%)",
+  flexDirection: "column",
 
   width: "100%",
   height: "100%",
@@ -30,13 +31,20 @@ const className = css({
   )}, 0 -30px .5px -19px ${absoluteBlue(0.05)}`
 });
 
-const Working = props => {
-  console.log("(****", props);
-  return (
-    <div className={containerClassName}>
-      <div className={className}>{props.children()}</div>
-    </div>
-  );
-};
+const dragger = css({
+  // background: "hsla(20, 10%, 87%, 0.9)",
+  backgroundImage: "radial-gradient(hsla(209, 100%, 47%, 1) 4%, transparent 0)",
+  backgroundSize: "8px 8px",
+  padding: spacer(2)
+});
 
-export default draggable(Working);
+const Wrapper = props => (
+  <div className={containerClassName}>
+    <div className={className}>
+      <div className={"dragger"} />
+      {props.children()}
+    </div>
+  </div>
+);
+
+export default draggable(Wrapper);
