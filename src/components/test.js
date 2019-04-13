@@ -1,29 +1,9 @@
 import React from "react";
 import { css } from "glamor";
 
-import { absoluteBlue, white, black } from "../util";
+import { absoluteBlue, white, black, spacer } from "../util";
 
 import draggable from "./DraggablePts";
-
-const spacer = num => `${8 * num}px`;
-
-for (var i = 1; i >= 0; i -= 0.01) {
-  i = Math.round(i * 100) / 100;
-  var alpha = Math.round(i * 255);
-  var hex = (alpha + 0x10000)
-    .toString(16)
-    .substr(-2)
-    .toUpperCase();
-  var perc = Math.round(i * 100);
-}
-
-const opacity = (hex, alpha) => {
-  const alphaBit = Math.round(alpha * 255);
-  const alphaHex = (alphaBit + 0x10000).toString(16).substr(-2);
-
-  console.log(`${hex}${alphaHex}`);
-  return `${hex}${alphaHex}`;
-};
 
 const containerClassName = css({
   width: "100%",
