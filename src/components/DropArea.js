@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Draggable from "./Draggable";
 import Test from "./test";
 // drop area Component
 class DropArea extends React.Component {
@@ -9,27 +8,13 @@ class DropArea extends React.Component {
     super(props);
 
     this.state = {
-      list: [
-        {
-          id: 1,
-          isDragging: false,
-          isResizing: false,
-          top: 100,
-          left: 50,
-          width: 100,
-          height: 150
-        },
-        {
-          id: 2,
-          isDragging: false,
-          isResizing: false,
-          top: 50,
-          left: 200,
-          width: 200,
-          height: 100
-        }
-      ]
+      list: []
     };
+  }
+
+  componentDidMount() {
+    const { items } = this.props;
+    this.setState({ list: items });
   }
   onDragOver(e) {
     console.log("DropArea.onDragOver");
@@ -91,25 +76,23 @@ class DropArea extends React.Component {
     this.setState(newState);
   }
   render() {
-    let items = [];
-    for (let item of this.state.list) {
-      items.push(
-        <Test
-          ref={"node_" + item.id}
-          key={item.id}
-          id={item.id}
-          top={item.top}
-          left={item.left}
-          width={item.width}
-          height={item.height}
-          isDragging={item.isDragging}
-          isResizing={item.isResizing}
-          updateStateDragging={this.updateStateDragging.bind(this)}
-          updateStateResizing={this.updateStateResizing.bind(this)}
-          funcResizing={this.funcResizing.bind(this)}
-        />
-      );
-    }
+    const { items } = this.props;
+    const draggables = items.map(item => (
+      <Test
+        ref={"node_" + item.id}
+        key={item.id}
+        id={item.id}
+        top={item.top}
+        left={item.left}
+        width={item.width}
+        height={item.height}
+        isDragging={item.isDragging}
+        isResizing={item.isResizing}
+        updateStateDragging={this.updateStateDragging.bind(this)}
+        updateStateResizing={this.updateStateResizing.bind(this)}
+        funcResizing={this.funcResizing.bind(this)}
+      />
+    ));
 
     return (
       <div
@@ -117,7 +100,7 @@ class DropArea extends React.Component {
         onDragOver={this.onDragOver.bind(this)}
         onDrop={this.onDrop.bind(this)}
       >
-        {items}
+        {draggables}
       </div>
     );
   }
