@@ -2,9 +2,6 @@ import React from "react";
 
 // Resizer Component
 class Resizer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     window.addEventListener("mousemove", this.onMouseMove.bind(this), false);
     window.addEventListener("mouseup", this.onMouseUp.bind(this), false);

@@ -3,10 +3,6 @@ import React from "react";
 import Resizer from "./Resizer";
 // draggable Component
 class Draggable extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   onMouseDown(e) {
     console.log("Draggable.onMouseDown");
 

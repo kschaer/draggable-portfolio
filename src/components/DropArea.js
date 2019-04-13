@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import Draggable from "./Draggable";
-
+import Test from "./test";
 // drop area Component
 class DropArea extends React.Component {
   constructor(props) {
@@ -94,7 +94,7 @@ class DropArea extends React.Component {
     let items = [];
     for (let item of this.state.list) {
       items.push(
-        <Draggable
+        <Test
           ref={"node_" + item.id}
           key={item.id}
           id={item.id}
@@ -110,6 +110,7 @@ class DropArea extends React.Component {
         />
       );
     }
+
     return (
       <div
         className="drop-area"
