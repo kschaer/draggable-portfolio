@@ -37,12 +37,7 @@ const draggableCanvas = WrappedComponent => {
       this.props.updateStateDragging(this.props.id, false);
     }
     render() {
-      const styles = {
-        top: this.props.top,
-        left: this.props.left,
-        width: this.props.width,
-        height: this.props.height
-      };
+      const styles = this.props;
       return (
         <div
           ref={"node"}

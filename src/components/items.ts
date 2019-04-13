@@ -1,3 +1,5 @@
+import React from "react";
+
 interface Item {
   id: string;
   isDragging: boolean;
@@ -10,19 +12,28 @@ interface Item {
 
 export const items: Array<Item> = [
   {
+    id: "title",
+    isDragging: false,
+    isResizing: false,
+    top: 60,
+    left: 250,
+    width: 800,
+    height: 150
+  },
+  {
     id: "first",
     isDragging: false,
     isResizing: false,
-    top: 80,
+    top: 180,
     left: 140,
     width: 500,
-    height: 150
+    height: 180
   },
   {
     id: "second",
     isDragging: false,
     isResizing: false,
-    top: 150,
+    top: 220,
     left: 350,
     width: 300,
     height: 200
@@ -31,7 +42,7 @@ export const items: Array<Item> = [
     id: "third",
     isDragging: false,
     isResizing: false,
-    top: 50,
+    top: 450,
     left: 600,
     width: 400,
     height: 250

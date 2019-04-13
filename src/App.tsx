@@ -3,7 +3,7 @@ import "./App.css";
 
 import DropArea from "./components/DropArea";
 
-import { items } from "./components/items";
+import { items } from "./components/Items";
 
 class App extends Component {
   render() {
