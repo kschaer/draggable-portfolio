@@ -55,6 +55,7 @@
   width: 100vw;
   height: 100vh;
   border: 1px solid #999;
+  font-family: "Space Mono", monospace;
 }
 .drop-area .item {
   position: absolute;
