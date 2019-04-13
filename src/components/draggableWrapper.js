@@ -4,6 +4,9 @@ import Resizer from "./Resizer";
 
 const draggableCanvas = WrappedComponent => {
   return class DraggableWrapper extends React.Component {
+    componentDidMount() {
+      console.log("mounted", this.props);
+    }
     onMouseDown(e) {
       console.log("Draggable.onMouseDown");
 
@@ -38,6 +41,7 @@ const draggableCanvas = WrappedComponent => {
     }
     render() {
       const styles = this.props;
+      console.log("WRAPPER PROPS", this.props.children, this.props.comp);
       return (
         <div
           ref={"node"}
@@ -50,7 +54,7 @@ const draggableCanvas = WrappedComponent => {
           onDragStart={this.onDragStart.bind(this)}
           onDragEnd={this.onDragEnd.bind(this)}
         >
-          <WrappedComponent />
+          <WrappedComponent children={this.props.children} />
           <Resizer
             ref={"resizerNode"}
             id={this.props.id}

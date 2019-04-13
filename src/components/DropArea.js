@@ -15,6 +15,7 @@ class DropArea extends React.Component {
   componentDidMount() {
     const { items } = this.props;
     this.setState({ list: items });
+    console.log(items[items.length - 2].Component);
   }
   onDragOver(e) {
     console.log("DropArea.onDragOver");
@@ -77,31 +78,43 @@ class DropArea extends React.Component {
   }
   render() {
     const { items } = this.props;
-    const draggables = items.map(item => (
-      <Test
-        ref={"node_" + item.id}
-        key={item.id}
-        id={item.id}
-        top={item.top}
-        left={item.left}
-        width={item.width}
-        height={item.height}
-        isDragging={item.isDragging}
-        isResizing={item.isResizing}
-        updateStateDragging={this.updateStateDragging.bind(this)}
-        updateStateResizing={this.updateStateResizing.bind(this)}
-        funcResizing={this.funcResizing.bind(this)}
-      />
-    ));
+    const draggables =
+      items &&
+      items.map(item => {
+        console.log(item);
+        return (
+          item.Component && (
+            <Test
+              ref={"node_" + item.id}
+              key={item.id}
+              id={item.id}
+              top={item.top}
+              left={item.left}
+              width={item.width}
+              height={item.height}
+              isDragging={item.isDragging}
+              isResizing={item.isResizing}
+              updateStateDragging={this.updateStateDragging.bind(this)}
+              updateStateResizing={this.updateStateResizing.bind(this)}
+              funcResizing={this.funcResizing.bind(this)}
+              component={item.Component}
+            >
+              {item.Component}
+            </Test>
+          )
+        );
+      });
 
     return (
-      <div
-        className="drop-area"
-        onDragOver={this.onDragOver.bind(this)}
-        onDrop={this.onDrop.bind(this)}
-      >
-        {draggables}
-      </div>
+      draggables && (
+        <div
+          className="drop-area"
+          onDragOver={this.onDragOver.bind(this)}
+          onDrop={this.onDrop.bind(this)}
+        >
+          {draggables}
+        </div>
+      )
     );
   }
 }

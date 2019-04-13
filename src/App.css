@@ -56,8 +56,18 @@
   height: 100vh;
   border: 1px solid #999;
   font-family: "Space Mono", monospace;
-  background: #282c34;
+  /* background: #282c34; */
+  background: hsla(20, 10%, 87%, 0.9);
+  background-image: radial-gradient(hsla(209, 0%, 47%, 1) 4%, transparent 0);
+  background-size: 30px 30px;
 }
+
+/* body {
+  background: hsla(209, 100%, 47%, 0.1);
+  background-image: radial-gradient(hsla(209, 100%, 47%, 1.00) 5%, transparent 0);
+  background-size: 30px 30px;
+} */
+
 .drop-area .item {
   position: absolute;
   cursor: pointer;
