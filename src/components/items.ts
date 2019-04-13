@@ -15,8 +15,8 @@ export const items: Array<Item> = [
     isResizing: false,
     top: 100,
     left: 50,
-    width: 100,
-    height: 150
+    width: 300,
+    height: 200
   },
   {
     id: "second",
@@ -24,7 +24,7 @@ export const items: Array<Item> = [
     isResizing: false,
     top: 50,
     left: 200,
-    width: 200,
-    height: 100
+    width: 400,
+    height: 250
   }
 ];
